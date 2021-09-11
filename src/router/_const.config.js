@@ -1,0 +1,2 @@
+export const DETAIL_CONTACT = 'DETAIL_CONTACT';
+export const LIST_CONTACT = 'LIST_CONTACT';
