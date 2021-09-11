@@ -172,6 +172,20 @@ const ListContact = props => {
 
   return (
     <View style={[styles.container]}>
+      {/* Loading Spinner */}
+      {loading && <View
+        style={{
+          backgroundColor: 'rgba(103,134,155, 0.4)',
+          position: 'absolute',
+          height: hp('94%'),
+          width: wp('100%'),
+          zIndex: 1000,
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}>
+        <ActivityIndicator size="large" color="#01abe9" />
+      </View>}
+
       {/* Modal Add */}
       <ModalForm
         isVisible={modalVisiable}
@@ -229,9 +243,9 @@ const ListContact = props => {
         onClear={() => {setDeboucnSearch("")}}
       />
 
-      {props?.list_contact?.length < 1 && (
+      {(!loading && props?.list_contact?.length < 1) && (
         <>
-          <View style={[styles.card]}>
+          <View style={[styles.card, {zIndex: 100}]}>
             <SkeletonPlaceholder>
               <View style={{flexDirection: 'row', alignItems: 'center'}}>
                 <View style={{width: 60, height: 60, borderRadius: 50}} />
